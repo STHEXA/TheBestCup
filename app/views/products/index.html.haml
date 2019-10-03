@@ -1,0 +1,56 @@
+%body
+  = render partial: 'layouts/header'
+  = render partial: 'layouts/aside'
+  %main
+    .image-container
+      %p Starbucks
+      %img{:alt => "store", :src => "image/coffeecup.png"}/
+    .details-container
+      .tabs
+        %input#about{:checked => "checked", :name => "tab_item", :type => "radio"}/
+        %label.tab_item{:for => "about"} ABOUT
+        %input#memo{:name => "tab_item", :type => "radio"}/
+        %label.tab_item{:for => "memo"} MEMO
+        %input#edit{:name => "tab_item", :type => "radio"}/
+        %label.tab_item{:for => "edit"}
+          %i.fas.fa-edit>
+          EDIT
+        #about_content.tab_content
+          %i.fas.fa-coffee コーヒーについての情報
+          %table
+            %tr
+              %th 商品名
+              %td ドリップコーヒー
+            %tr
+              %th 価格
+              %td 310円
+            %tr
+              %th 焙煎度
+              %td 深煎
+        #memo_content.tab_content
+          %i.fas.fa-coffee コーヒーの感想
+          %table
+            %tr
+              %th MEMO
+              %td チェーン店にしてはなかなかの美味しさだった。価格も安めなのでまた利用したい。
+        #edit_content.tab_content
+          %form.details-container__form
+            %label{:for => "coffee-name"} 商品名:
+            %input#coffee-name{:type => "text"}/
+            %label{:for => "coffee-value"} 値段:
+            %input#coffee-value{:type => "number"}/
+            .form__radio
+              %p 味のタイプ
+              %input#light-roast{:checked => "checked", :name => "roast-radio", :type => "radio"}/
+              %label{:for => "light-roast"} 浅煎・・・酸味が強め
+              %input#deep-roast{:name => "roast-radio", :type => "radio"}/
+              %label{:for => "deep-roast"} 深煎・・・苦味が強め
+            %p 写真
+            .form-container__image
+              .form-container__image--box
+                %label{:for => "store-image"} 画像を選択してください
+                %input#store-image{:type => "file"}/
+            .details-container__form--textarea
+              %label{:for => "text"} メモ
+              %textarea
+              %a.btn-square-so-pop{:href => "#"} Record
