@@ -1,0 +1,21 @@
+= render partial: 'layouts/header'
+%main.store
+  .title-container
+    %p My Storeを登録しよう！
+  .form-container
+    = form_for @store do |f|
+      .form-container__name
+        = f.label 'Store Name'
+        = f.text_field :name, placeholder: '店名を入力してください'
+      .form-container__visitDay
+        = f.label 'Visit Day'
+        = f.date_field :visit_day
+      .form-container__image
+        = f.label 'image'
+        .form-container__image--box
+          = f.label '画像を選択してください', for: 'store-image'
+          = f.file_field :image, id: 'store-image'
+      %p.form-container__submit
+        = f.submit 'Record', class: 'btn-square-so-pop'
+        = link_to 'トップページに戻る', :back, class: 'btn'
+
