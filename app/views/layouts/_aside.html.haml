@@ -5,8 +5,7 @@
     - current_user.stores.each do |store|
       = link_to '#' do
         = store.name
-        %img
-          = image_tag store.image
+        = image_tag store.image.url
         = store.visit_day
   -# .side-container__store
   -#   %p ドトールコーヒー
