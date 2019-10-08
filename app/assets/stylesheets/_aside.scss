@@ -1,14 +1,14 @@
 aside {
-  height: calc(100vh - 60px);
-  width: 200px;
   background-color: #a9b3b0;
-  float: left;
+  height: 20vh;
+  width: 100vw;
 }
 
-.side-container {
+.side-container__titleZone {
   height: 30px;
-  width: 100%;
+  width: 100vw;
   background-color: #776147;
+
 }
 
 .side-container__title {
@@ -16,9 +16,16 @@ aside {
   line-height: 30px;
 }
 
+.side-container__storeZone {
+  display: flex;
+  justify-content: center;
+}
+
 .side-container__store {
-  margin-top: 20px;
+  display: flex;
+  margin-top: 10px;
   text-align: center;
+  margin-right: 10px;
   a {
     text-decoration: none;
   }
@@ -28,6 +35,7 @@ aside {
   }
 }
 
+
 .side-container__store img {
   height: 80px;
   width: 170px;
@@ -35,6 +43,7 @@ aside {
 
 .side-container__add {
   margin-top: 40px;
+  margin-left: 20px;
   text-align: center;
 }
 

@@ -1,19 +1,17 @@
 %aside
-  .side-container
+  .side-container__titleZone
     %p.side-container__title My Store
-  .side-container__store
+  .side-container__storeZone
     - current_user.stores.each do |store|
-      = link_to '#' do
-        = store.name
-        = image_tag store.image.url
-        = store.visit_day
-  -# .side-container__store
-  -#   %p ドトールコーヒー
-  -#   %img{:alt => "store", :src => "image/topimg_dcs.png"}/
-  -#   %p 2019/06/06
-  .side-container__add
-    = link_to new_store_path do
-      .side-container__add-btn
-        = fa_icon 'plus-square', class: 'icon'
-    
-      
+      .side-container__store
+        = link_to '#' do
+          = store.name
+          %br
+          = image_tag store.image.url
+          %br
+          = store.visit_day
+          %br
+    .side-container__add
+      = link_to new_store_path do
+        .side-container__add-btn
+          = fa_icon 'plus-square', class: 'icon' 
