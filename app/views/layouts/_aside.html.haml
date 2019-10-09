@@ -4,7 +4,7 @@
   .side-container__storeZone
     - current_user.stores.each do |store|
       .side-container__store
-        = link_to '#' do
+        = link_to store_products_path(store) do
           = store.name
           %br
           = image_tag store.image.url
