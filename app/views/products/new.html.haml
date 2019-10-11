@@ -1,0 +1,53 @@
+= render partial: 'layouts/header'
+%main.store
+  .title-container
+    %p The Best Cupを登録しよう！
+  .form-container
+    = form_for [@store, @product] do |f|
+      .form-container__name
+        = f.label '商品名:'
+        = f.text_field :name, id: 'coffee-name'
+        = f.label '値段:'
+        = f.number_field :price, id: 'coffee-value'
+      .form-container__visitDay
+        = f.radio_button :taste, "浅煎・・・酸味が強め", id: 'light-roast'
+        = f.label '浅煎・・・酸味が強め'
+        = f.radio_button :taste, "深煎・・・苦味が強め", id: 'deep-roast'
+        = f.label '深煎・・・苦味が強め'
+      .form-container__image
+        = f.label 'image'
+        .form-container__image--box
+          = f.label '画像を選択してください', for: 'store-image'
+          = f.file_field :image, id: 'store-image'
+      .details-container__form--textarea
+        = f.label 'メモ'
+        = f.text_area :memo
+      %p.form-container__submit
+        = f.submit 'Record', class: 'btn-square-so-pop'
+        = link_to 'トップページに戻る', :back, class: 'btn'
+
+-# .details-container__form
+-#         = form_for [@store, @product] do |f|
+-#           = f.label '商品名:'
+-#           = f.text_field :name, id: 'coffee-name'
+-#           = f.label '値段:'
+-#           = f.number_field :price, id: 'coffee-value'
+        
+-#           .form__radio
+-#           %p 味のタイプ
+-#           = f.radio_button :taste, "浅煎・・・酸味が強め", id: 'light-roast'
+-#           = f.label '浅煎・・・酸味が強め'
+-#           = f.radio_button :taste, "深煎・・・苦味が強め", id: 'deep-roast'
+-#           = f.label '深煎・・・苦味が強め'
+          
+-#           %p 写真
+-#           .form-container__image
+-#             .form-container__image--box
+-#             = f.label '画像を選択してください', for: 'store-image'
+-#             = f.file_field :image, id: 'store-image'
+            
+-#           .details-container__form--textarea
+-#           = f.label 'メモ'
+-#           = f.text_area :memo
+          
+-#           = f.submit 'Record'

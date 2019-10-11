@@ -6,6 +6,11 @@ class ProductsController < ApplicationController
     @products = @store.products.includes(:user)
   end
 
+  def new
+    @product = Product.new
+    @products = @store.products.includes(:user)
+  end
+
   def create
     @product = @store.products.new(product_params)
     if @product.save
