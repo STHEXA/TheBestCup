@@ -37,9 +37,8 @@ Things you may want to cover:
 |------|----|-------|
 |name|string|null: false|
 |visit_day|date|null: false|
+|image|text|null: false|
 |user_id|references|null: false, foreign_key: true|
-|product_id|references|null: false, foreign_key: true|
-|image_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 - has_many :products
@@ -51,10 +50,9 @@ Things you may want to cover:
 |name|string|null: false|
 |price|int||
 |taste|string|null: false|
-|memo|text||
+|memo|string||
 |store_id|references|null: false, foreign_key: true|
 |user_id|references|null: false, foreign_key: true|
-|image_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :product
 - belongs_to :user

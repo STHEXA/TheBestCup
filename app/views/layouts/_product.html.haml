@@ -1,0 +1,59 @@
+= image_tag @products[0].image.url
+.details-container
+  .tabs
+    %input#about{:checked => "checked", :name => "tab_item", :type => "radio"}/
+    %label.tab_item{:for => "about"} ABOUT
+    %input#memo{:name => "tab_item", :type => "radio"}/
+    %label.tab_item{:for => "memo"} MEMO
+    %input#edit{:name => "tab_item", :type => "radio"}/
+    %label.tab_item{:for => "edit"}
+      %i.fas.fa-edit>
+      EDIT
+    #about_content.tab_content
+      %i.fas.fa-coffee コーヒーについての情報
+      %table
+        %tr
+          %th 商品名
+          %td 
+            = @products[0].name
+        %tr
+          %th 価格
+          %td 
+            = @products[0].price
+        %tr
+          %th 焙煎度
+          %td 
+            = @products[0].taste
+    #memo_content.tab_content
+      %i.fas.fa-coffee コーヒーの感想
+      %table
+        %tr
+          %th MEMO
+          %td 
+            = @products[0].memo
+    #edit_content.tab_content
+      .details-container__form
+        = form_for [@store, @product] do |f|
+          = f.label '商品名:'
+          = f.text_field :name, id: 'coffee-name'
+          = f.label '値段:'
+          = f.number_field :price, id: 'coffee-value'
+        
+          .form__radio
+          %p 味のタイプ
+          = f.radio_button :taste, "浅煎・・・酸味が強め", id: 'light-roast'
+          = f.label '浅煎・・・酸味が強め'
+          = f.radio_button :taste, "深煎・・・苦味が強め", id: 'deep-roast'
+          = f.label '深煎・・・苦味が強め'
+          
+          %p 写真
+          .form-container__image
+            .form-container__image--box
+            = f.label '画像を選択してください', for: 'store-image'
+            = f.file_field :image, id: 'store-image'
+            
+          .details-container__form--textarea
+          = f.label 'メモ'
+          = f.text_area :memo
+          
+          = f.submit 'Record'

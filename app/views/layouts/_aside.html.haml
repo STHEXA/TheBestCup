@@ -1,14 +1,17 @@
 %aside
-  .side-container
+  .side-container__titleZone
     %p.side-container__title My Store
-  .side-container__store
-    %p Starbucks
-    %img{:alt => "store", :src => "image/content_iStock-458083395-2.png"}/
-    %p 2019/09/09
-  .side-container__store
-    %p ドトールコーヒー
-    %img{:alt => "store", :src => "image/topimg_dcs.png"}/
-    %p 2019/06/06
-  .side-container__add
-    %a.side-container__add-btn{:href => "#"}
-      %i.far.fa-plus-square
+  .side-container__storeZone
+    - current_user.stores.each do |store|
+      .side-container__store
+        = link_to store_products_path(store) do
+          = store.name
+          %br
+          = image_tag store.image.url
+          %br
+          = store.visit_day
+          %br
+    .side-container__add
+      = link_to new_store_path do
+        .side-container__add-btn
+          = fa_icon 'plus-square', class: 'icon' 
