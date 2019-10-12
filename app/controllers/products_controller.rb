@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   before_action :set_store
 
   def index
-    @product = Product.new
+    @product = @store.products[0]
     @products = @store.products.includes(:user)
   end
 
@@ -20,6 +20,12 @@ class ProductsController < ApplicationController
       render :index
       alert("saveできず")
     end
+  end
+
+  def update
+    @product = Product.find_by(id: params[:id])
+    @product.update(product_params)
+    redirect_to store_products_path(@store)
   end
 
   private
