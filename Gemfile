@@ -39,7 +39,6 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'pry-rails'
-  gem 'sqlite3'
 end
 
 group :development do
@@ -59,6 +58,4 @@ gem "font-awesome-rails"
 gem 'carrierwave'
 gem 'mini_magick'
 
-group :production do
-  gem 'pg', '~> 1.1', '>= 1.1.4'
-end
+gem 'pg', group: :production
