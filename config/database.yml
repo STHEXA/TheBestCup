@@ -49,9 +49,10 @@ test:
 #
 production:
   <<: *default
-  database: TheBestCup_production
-  username: TheBestCup
-  password: <%= ENV['THEBESTCUP_DATABASE_PASSWORD'] %>
   adapter: postgresql
   encoding: unicode
   pool: 5
+  database: TheBestCup_production
+  username: TheBestCup
+  password: <%= ENV['THEBESTCUP_DATABASE_PASSWORD'] %>
+  
